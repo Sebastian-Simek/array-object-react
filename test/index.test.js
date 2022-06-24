@@ -11,7 +11,7 @@ import {
 } from '..'
 import { brands } from '../data'
 
-test('getName should return the name attribute from an object', () => {
+test.skip('getName should return the name attribute from an object', () => {
   expect(getName({ name: 'Benny' })).toBe('Benny')
 })
 
@@ -71,7 +71,7 @@ test.skip('getBrandNames should return an array of the names of the sneaker bran
   expect(getBrandNames(brands)).toStrictEqual(['Nike', 'Puma', 'Adidas'])
 })
 
-test.skip('totalSneakerCount should return total number of sneakers', () => {
+test('totalSneakerCount should return total number of sneakers', () => {
   expect(totalSneakerCount(brands)).toBe(14)
 })
 
