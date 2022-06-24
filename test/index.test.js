@@ -51,7 +51,7 @@ test.skip('getSum should return the sum of inputs', () => {
   expect(getSum(1, 2, 3, 4, 5)).toBe(15)
 })
 
-test('getFirstTwoArgs returns the first two arguments as an array', () => {
+test.skip('getFirstTwoArgs returns the first two arguments as an array', () => {
   expect(getFirstTwoArgs(1, 2, 3, 4, 5)).toStrictEqual([1, 2, [3, 4, 5]])
   expect(getFirstTwoArgs('a', 'b', 'c', 'd')).toStrictEqual(['a', 'b', ['c', 'd']])
 })
@@ -71,7 +71,7 @@ test.skip('getBrandNames should return an array of the names of the sneaker bran
   expect(getBrandNames(brands)).toStrictEqual(['Nike', 'Puma', 'Adidas'])
 })
 
-test.skip('totalSneakerCount should return total number of sneakers', () => {
+test('totalSneakerCount should return total number of sneakers', () => {
   expect(totalSneakerCount(brands)).toBe(14)
 })
 

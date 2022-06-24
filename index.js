@@ -3,14 +3,14 @@
 // OUTPUT: the value of the 'name' attribute i.e. Benny
 // REQS: use destructuring and the function should be a single line
 
-export const getName = ({ name }) => name;
+export const getName = ({ name }) => name
 
 // INPUT: an object with a nested "address" attribute such as
 //   {name: 'Bob Smith', address: {street: 'Main Street', number: 123, city: 'Anytown', country: 'USA}}
 // OUTPUT: the string 'Bob Smith lives at 123 Main Street, Anytown, USA'
 // REQS: use destructuring and template literals
 
-export const printAddress = ( {name, address: { street, number, city, country}}) => {
+export const printAddress = ({ name, address: { street, number, city, country } }) => {
   return `${name} lives at ${number} ${street}, ${city}, ${country}`
 }
 
@@ -19,13 +19,13 @@ export const printAddress = ( {name, address: { street, number, city, country}})
 // as part of the function definitions (i.e. there should be no dots in the template literals)
 export const printUserInfo = ({
   username, 
- name: { first, last },
+  name: { first, last },
   info: {
     favorites: {
       food, color
     },
     pet: {
-      type, name
+      name
     },
     address: { 
       street, number, city, country
@@ -49,7 +49,7 @@ export const printUserInfo = ({
 //  getSum(1, 2, 3, 4, 5) === 15
 export const getSum = (...rest) => {
   return rest.reduce((acc, curr) => {
-    return acc + curr;
+    return acc + curr
   }, 0)
 }
 
@@ -59,7 +59,7 @@ export const getSum = (...rest) => {
 // getFirstTwoArgs(1, 2, 3, 4, 5) should return [1, 2, [3, 4, 5]]
 // getFirstTwoArgs('a', 'b', 'c', 'd') should return ['a', 'b', ['c', 'd']]
 export const getFirstTwoArgs = (...rest) => {
-  const array1 = [...rest].slice(0,2)
+  const array1 = [...rest].slice(0, 2)
   const array2 = [...rest].slice(2)
   return [...array1, array2]
 }
@@ -85,23 +85,28 @@ export const getFirstTwoArgs = (...rest) => {
 //    return a NEW object, do not modify the object passed in to the function
 //    use spread operator to create a new object
 
-export const addSneakerCount = ( {
+export const addSneakerCount = ({
   shoes,
   slogan,
   logo,
   headquarters
-} ) => {
-  return 
+}) => {
+  const nike = { shoes, slogan, logo, headquarters }
+  const sneakerCount = shoes.length
+  return { ...nike, sneakerCount }
 }
 
 // INPUT: brands from data.js
 // OUTPUT: the brand names listed
 // REQS: use Object.keys to solve
-export const getBrandNames = () => {}
+export const getBrandNames = (brands) => Object.keys(brands)
+
 
 // INPUT: brands from data.js
 // OUTPUT: total number of sneaker types across all brands (14)
-export const totalSneakerCount = () => {}
+export const totalSneakerCount = ({ Nike: { shoes }, Puma: { shoes: shoes1 }, Adidas: { shoes: shoes2 } }) => {
+  return shoes.length + shoes2.length + shoes1.length
+}
 
 // INPUT: An object
 // OUTPUT: An array with key value pairs converted to arrays
@@ -110,6 +115,7 @@ export const totalSneakerCount = () => {}
 // convertToArray({}) => []
 // Source: https://edabit.com/challenge/pPNAs5PvB3WvnDwDM
 
-export const convertToArray = () => {}
+export const convertToArray = (brands) => Object.entries(brands)
+
 
 //
